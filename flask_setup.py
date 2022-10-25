@@ -10,6 +10,6 @@ def hello_world():
 
 @app.route("/sita")
 def hello():
- return "<p>Ram </p>"
+ return "<p>Rama</p>"
 
 
