@@ -2,10 +2,13 @@ from flask import Flask,request, jsonify
 from flask_mongoengine import MongoEngine
 from healthcheck import HealthCheck
 import json
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 
 health = HealthCheck()
+metrics.info('app_info', 'Application info', version='1.0.3')
 
 app.config['MONGODB_SETTINGS'] = {
     'db': 'Devops',
